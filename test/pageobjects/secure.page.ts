@@ -2,16 +2,23 @@ import { ChainablePromiseElement } from 'webdriverio';
 
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class SecurePage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    public get flashAlert () {
-        return $('#flash');
+class ElEconomistaPage extends Page {
+    //GETTERS
+    get sidebarButton () {
+        return $('// button [contains(@aria-label,"Toggle navigation")]');
+    }
+    get mercadosSection() {
+        return $('// a [contains(.,"  Mercados")]');
+    }
+    get iMundialSection() {
+        return $('// a [contains(.,"Índices mundiales")]');
+    }
+    get euroTable() {
+        return $('// h3 [contains(.,"Europa")]');
+    }
+    get tableValues() {
+        return $$('td .accion-1');
     }
 }
 
-export default new SecurePage();
+export default new ElEconomistaPage();
