@@ -27,6 +27,9 @@ function sortValues() {
 describe('Testing and getting the needed values', () => {
     it('Open the page of El Economista', async () => {
         await ElEconomistaPage.open('');
+        await browser.pause(3000);
+        await ElEconomistaPage.cookiesBtn.waitForClickable();
+        await ElEconomistaPage.cookiesBtn.click();
         await browser.pause(2000);
         await expect(ElEconomistaPage.sidebarButton).toBeClickable();
     });
@@ -37,7 +40,8 @@ describe('Testing and getting the needed values', () => {
         await ElEconomistaPage.mercadosSection.click();
         await expect(ElEconomistaPage.iMundialSection).toBeDisplayed();
         await ElEconomistaPage.iMundialSection.click();
-        await browser.pause();
+        await browser.pause(3000);
+        await ElEconomistaPage.euroTable.scrollIntoView();
         await expect(ElEconomistaPage.euroTable).toBeDisplayed();
     });
 

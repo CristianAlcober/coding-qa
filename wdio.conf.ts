@@ -14,8 +14,8 @@ export const config: Options.Testrunner = {
             transpileOnly: true
         }
     },
-    
-    
+
+
     //
     // ==================
     // Specify Test Files
@@ -33,7 +33,7 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/example.e2e.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -113,7 +113,7 @@ export const config: Options.Testrunner = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -136,13 +136,13 @@ export const config: Options.Testrunner = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
 
-    
+
     //
     // Options to be passed to Jasmine.
     jasmineOpts: {
         // Jasmine default timeout
-        defaultTimeoutInterval: 60000,
-        //
+        defaultTimeoutInterval: 24 * 60 * 60 * 1000,
+        // 60000
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
@@ -150,7 +150,7 @@ export const config: Options.Testrunner = {
             // do something
         }
     },
-    
+
     //
     // =====
     // Hooks

@@ -1,5 +1,3 @@
-import { ChainablePromiseElement } from 'webdriverio';
-
 import Page from './page.js';
 
 class ElEconomistaPage extends Page {
@@ -17,7 +15,10 @@ class ElEconomistaPage extends Page {
         return $('// h3 [contains(.,"Europa")]');
     }
     get tableValues() {
-        return $$('td .accion-1');
+        return $$('td .accion1');
+    }
+    get cookiesBtn() {
+        return $('// button [contains(.,"Aceptar y cerrar")]');
     }
 }
 
